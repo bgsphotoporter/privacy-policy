@@ -1,2 +1,14 @@
-# privacy-policy
-Privacy Policy for BGS Photo Porter
+# BGS Photo Porter 개인정보 처리방침
+
+본 앱은 사용자의 사진 및 영상을 외부 저장소로 백업하는 기능을 제공합니다.
+
+## 수집하는 정보
+- 사진 라이브러리 접근 (백업 목적)
+- 광고 식별자 (맞춤형 광고 제공 목적)
+
+## 데이터 저장
+- 사진 데이터는 외부 서버에 저장되지 않습니다
+- 모든 백업은 사용자 기기 내 파일 앱을 통해 처리됩니다
+
+## 문의
+bgsphotoporter@gmail.com
