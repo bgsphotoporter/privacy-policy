@@ -46,7 +46,7 @@
     }
 
     header {
-      margin-bottom: 30px;
+      margin-bottom: 26px;
     }
 
     h1 {
@@ -88,6 +88,31 @@
       font-size: 18px;
     }
 
+    .language-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 22px;
+    }
+
+    .language-switch button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .language-switch button[aria-pressed="true"] {
+      border-color: var(--accent);
+      color: #ffffff;
+      background: var(--accent);
+    }
+
     .card {
       background: var(--card);
       border: 1px solid var(--line);
@@ -101,13 +126,8 @@
       font-size: 14px;
     }
 
-    ul {
-      margin: 10px 0 0;
-      padding-left: 22px;
-    }
-
-    li {
-      margin: 6px 0;
+    .lang-section[hidden] {
+      display: none;
     }
 
     footer {
@@ -123,41 +143,121 @@
   <main>
     <header>
       <h1>BGS Photo Porter Support</h1>
-      <p class="lede">BGS Photo Porter 사용 중 도움이 필요하거나 버그를 발견하셨다면 아래 안내를 확인하거나 이메일로 문의해 주세요.</p>
+      <p class="lede" data-i18n="lede">BGS Photo Porter 사용 중 도움이 필요하거나 버그를 발견하셨다면 아래 안내를 확인하거나 이메일로 문의해 주세요.</p>
     </header>
 
-    <section class="card">
-      <h2>문의하기</h2>
-      <p>지원 이메일: <a href="mailto:bgsphotoporter@gmail.com">bgsphotoporter@gmail.com</a></p>
-      <p class="meta">문의 시 사용 중인 기기 모델, iOS 버전, 앱 버전, 발생한 상황을 함께 적어주시면 더 빠르게 확인할 수 있습니다.</p>
+    <nav class="language-switch" aria-label="Language">
+      <button type="button" data-lang-button="ko" aria-pressed="true">한국어</button>
+      <button type="button" data-lang-button="en" aria-pressed="false">English</button>
+      <button type="button" data-lang-button="ja" aria-pressed="false">日本語</button>
+    </nav>
+
+    <section class="lang-section" data-lang-section="ko" lang="ko">
+      <div class="card">
+        <h2>문의하기</h2>
+        <p>지원 이메일: <a href="mailto:bgsphotoporter@gmail.com">bgsphotoporter@gmail.com</a></p>
+        <p class="meta">문의 시 사용 중인 기기 모델, iOS 버전, 앱 버전, 발생한 상황을 함께 적어주시면 더 빠르게 확인할 수 있습니다.</p>
+      </div>
+
+      <div class="card">
+        <h2>자주 묻는 질문</h2>
+
+        <h3>사진 전체 접근 권한이 필요한 이유는 무엇인가요?</h3>
+        <p>사진과 영상 개수를 계산하고, 백업할 원본 리소스를 읽고, 폴더에서 가져올 때 기존 사진 라이브러리와 중복을 비교하기 위해 필요합니다.</p>
+
+        <h3>사진이나 영상이 개발자 서버로 업로드되나요?</h3>
+        <p>아니요. BGS Photo Porter는 사용자가 선택한 백업과 가져오기 작업을 기기 안에서 처리합니다. 앱 자체 서버로 사진이나 영상 파일을 업로드하지 않습니다.</p>
+
+        <h3>백업 파일은 어디에 저장되나요?</h3>
+        <p>사용자가 Files 앱에서 선택한 폴더에 저장됩니다. 앱은 촬영 날짜 기준으로 연/월/일 폴더를 만들어 사진과 영상을 정리합니다.</p>
+
+        <h3>Folder to Photos는 무엇인가요?</h3>
+        <p>외부 폴더의 사진과 영상을 iPhone 또는 iPad의 사진 앱으로 가져오는 기능입니다. 가져오기 전에 가능한 범위에서 중복 항목을 확인합니다.</p>
+
+        <h3>히스토리는 어디에 저장되나요?</h3>
+        <p>백업과 가져오기 기록은 기기 내 앱 Documents 영역에 저장됩니다. 히스토리 화면에서 선택 삭제 또는 전체 삭제를 할 수 있습니다.</p>
+
+        <h3>광고나 후원 결제가 앱 기능을 제한하나요?</h3>
+        <p>아니요. Coffee or Cake 항목은 선택형 개발자 후원용 인앱결제이며, 앱의 핵심 백업과 가져오기 기능을 잠그지 않습니다.</p>
+      </div>
+
+      <div class="card">
+        <h2>개인정보 처리방침</h2>
+        <p>BGS Photo Porter의 개인정보 처리방침은 아래 링크에서 확인할 수 있습니다.</p>
+        <p><a href="https://bgsphotoporter.github.io/privacy-policy/">https://bgsphotoporter.github.io/privacy-policy/</a></p>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>자주 묻는 질문</h2>
+    <section class="lang-section" data-lang-section="en" lang="en" hidden>
+      <div class="card">
+        <h2>Contact</h2>
+        <p>Support email: <a href="mailto:bgsphotoporter@gmail.com">bgsphotoporter@gmail.com</a></p>
+        <p class="meta">Please include your device model, iOS version, app version, and a short description of what happened so we can investigate faster.</p>
+      </div>
 
-      <h3>사진 전체 접근 권한이 필요한 이유는 무엇인가요?</h3>
-      <p>사진과 영상 개수를 계산하고, 백업할 원본 리소스를 읽고, 폴더에서 가져올 때 기존 사진 라이브러리와 중복을 비교하기 위해 필요합니다.</p>
+      <div class="card">
+        <h2>FAQ</h2>
 
-      <h3>사진이나 영상이 개발자 서버로 업로드되나요?</h3>
-      <p>아니요. BGS Photo Porter는 사용자가 선택한 백업과 가져오기 작업을 기기 안에서 처리합니다. 앱 자체 서버로 사진이나 영상 파일을 업로드하지 않습니다.</p>
+        <h3>Why does the app need full Photos access?</h3>
+        <p>Full Photos access is needed to count photos and videos, read original resources for backup, and compare imported folder items with your existing Photos library for duplicates.</p>
 
-      <h3>백업 파일은 어디에 저장되나요?</h3>
-      <p>사용자가 Files 앱에서 선택한 폴더에 저장됩니다. 앱은 촬영 날짜 기준으로 연/월/일 폴더를 만들어 사진과 영상을 정리합니다.</p>
+        <h3>Are my photos or videos uploaded to a developer server?</h3>
+        <p>No. BGS Photo Porter handles the backup and import tasks you choose on your device. The app does not upload photo or video files to its own server.</p>
 
-      <h3>Folder to Photos는 무엇인가요?</h3>
-      <p>외부 폴더의 사진과 영상을 iPhone 또는 iPad의 사진 앱으로 가져오는 기능입니다. 가져오기 전에 가능한 범위에서 중복 항목을 확인합니다.</p>
+        <h3>Where are backup files saved?</h3>
+        <p>Backup files are saved to the folder you choose in the Files app. The app organizes photos and videos into year/month/day folders based on their creation dates.</p>
 
-      <h3>히스토리는 어디에 저장되나요?</h3>
-      <p>백업과 가져오기 기록은 기기 내 앱 Documents 영역에 저장됩니다. 히스토리 화면에서 선택 삭제 또는 전체 삭제를 할 수 있습니다.</p>
+        <h3>What is Folder to Photos?</h3>
+        <p>Folder to Photos imports photos and videos from an external folder into the Photos app on your iPhone or iPad. The app checks for duplicates where possible before importing.</p>
 
-      <h3>광고나 후원 결제가 앱 기능을 제한하나요?</h3>
-      <p>아니요. Coffee or Cake 항목은 선택형 개발자 후원용 인앱결제이며, 앱의 핵심 백업과 가져오기 기능을 잠그지 않습니다.</p>
+        <h3>Where is history stored?</h3>
+        <p>Backup and import history is stored locally in the app's Documents area on your device. You can delete selected records or clear all history from the History screen.</p>
+
+        <h3>Do ads or support purchases limit app features?</h3>
+        <p>No. Coffee or Cake purchases are optional developer support in-app purchases. They do not lock the core backup or import features.</p>
+      </div>
+
+      <div class="card">
+        <h2>Privacy Policy</h2>
+        <p>You can view the BGS Photo Porter privacy policy at the link below.</p>
+        <p><a href="https://bgsphotoporter.github.io/privacy-policy/">https://bgsphotoporter.github.io/privacy-policy/</a></p>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>개인정보 처리방침</h2>
-      <p>BGS Photo Porter의 개인정보 처리방침은 아래 링크에서 확인할 수 있습니다.</p>
-      <p><a href="https://bgsphotoporter.github.io/privacy-policy/">https://bgsphotoporter.github.io/privacy-policy/</a></p>
+    <section class="lang-section" data-lang-section="ja" lang="ja" hidden>
+      <div class="card">
+        <h2>お問い合わせ</h2>
+        <p>サポートメール: <a href="mailto:bgsphotoporter@gmail.com">bgsphotoporter@gmail.com</a></p>
+        <p class="meta">お問い合わせの際は、端末モデル、iOSバージョン、アプリバージョン、発生した状況をお知らせください。より早く確認できます。</p>
+      </div>
+
+      <div class="card">
+        <h2>よくある質問</h2>
+
+        <h3>写真へのフルアクセスが必要な理由は何ですか？</h3>
+        <p>写真と動画の件数を確認し、バックアップ用の元データを読み取り、フォルダから読み込む際に既存の写真ライブラリと重複を比較するために必要です。</p>
+
+        <h3>写真や動画は開発者のサーバーにアップロードされますか？</h3>
+        <p>いいえ。BGS Photo Porterは、ユーザーが選択したバックアップと読み込み処理を端末内で行います。写真や動画ファイルをアプリ独自のサーバーへアップロードしません。</p>
+
+        <h3>バックアップファイルはどこに保存されますか？</h3>
+        <p>Filesアプリでユーザーが選択したフォルダに保存されます。アプリは作成日を基準に年/月/日のフォルダを作成して写真と動画を整理します。</p>
+
+        <h3>Folder to Photosとは何ですか？</h3>
+        <p>外部フォルダの写真や動画をiPhoneまたはiPadの写真アプリへ読み込む機能です。読み込み前に可能な範囲で重複項目を確認します。</p>
+
+        <h3>履歴はどこに保存されますか？</h3>
+        <p>バックアップと読み込みの履歴は、端末内のアプリDocuments領域に保存されます。履歴画面から選択削除または全削除ができます。</p>
+
+        <h3>広告やサポート購入で機能が制限されますか？</h3>
+        <p>いいえ。Coffee or Cakeは任意の開発者サポート用アプリ内課金です。主要なバックアップや読み込み機能を制限しません。</p>
+      </div>
+
+      <div class="card">
+        <h2>プライバシーポリシー</h2>
+        <p>BGS Photo Porterのプライバシーポリシーは以下のリンクから確認できます。</p>
+        <p><a href="https://bgsphotoporter.github.io/privacy-policy/">https://bgsphotoporter.github.io/privacy-policy/</a></p>
+      </div>
     </section>
 
     <footer>
@@ -165,5 +265,37 @@
       <p>Last updated: 2026-05-22</p>
     </footer>
   </main>
+
+  <script>
+    const copy = {
+      ko: "BGS Photo Porter 사용 중 도움이 필요하거나 버그를 발견하셨다면 아래 안내를 확인하거나 이메일로 문의해 주세요.",
+      en: "If you need help with BGS Photo Porter or found a bug, please review the information below or contact us by email.",
+      ja: "BGS Photo Porterの使用中にヘルプが必要な場合や不具合を見つけた場合は、以下をご確認いただくかメールでお問い合わせください。"
+    };
+
+    const buttons = Array.from(document.querySelectorAll("[data-lang-button]"));
+    const sections = Array.from(document.querySelectorAll("[data-lang-section]"));
+    const lede = document.querySelector("[data-i18n='lede']");
+
+    function chooseLanguage(lang) {
+      const nextLang = copy[lang] ? lang : "ko";
+      document.documentElement.lang = nextLang;
+      lede.textContent = copy[nextLang];
+      buttons.forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.langButton === nextLang));
+      });
+      sections.forEach((section) => {
+        section.hidden = section.dataset.langSection !== nextLang;
+      });
+    }
+
+    const preferred = (navigator.language || "ko").toLowerCase();
+    const initial = preferred.startsWith("ja") ? "ja" : preferred.startsWith("en") ? "en" : "ko";
+    chooseLanguage(initial);
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => chooseLanguage(button.dataset.langButton));
+    });
+  </script>
 </body>
 </html>
